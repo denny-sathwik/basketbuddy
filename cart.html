@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Basket Buddy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>Basket Buddy</span>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search for products, brands, and more...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="cart.html" class="nav-link active">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </a>
+                    <a href="orders.html" class="nav-link">
+                        <i class="fas fa-box"></i>
+                        <span>Orders</span>
+                    </a>
+                    <a href="#" class="nav-link" id="profileLink">
+                        <i class="fas fa-user"></i>
+                        <span id="userNameDisplay">Login</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <h1 class="page-title">
+                <i class="fas fa-shopping-cart"></i>
+                Shopping Cart
+            </h1>
+            
+            <!-- Empty Cart State -->
+            <div id="emptyCart" class="empty-state">
+                <div class="empty-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2>Your cart is empty</h2>
+                <p>Looks like you haven't added any items to your cart yet.</p>
+                <a href="index.html" class="btn-primary">
+                    <i class="fas fa-shopping-bag"></i>
+                    Start Shopping
+                </a>
+            </div>
+            
+            <!-- Cart Items -->
+            <div id="cartContent" class="cart-content" style="display: none;">
+                <div class="cart-grid">
+                    <!-- Cart Items List -->
+                    <div class="cart-items">
+                        <div class="cart-header">
+                            <h3>Cart Items (<span id="itemCount">0</span>)</h3>
+                            <button class="btn-text" onclick="clearCartConfirm()">
+                                <i class="fas fa-trash"></i>
+                                Clear Cart
+                            </button>
+                        </div>
+                        <div id="cartItemsList">
+                            <!-- Cart items will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Cart Summary -->
+                    <div class="cart-summary">
+                        <h3>Order Summary</h3>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">₹0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Delivery Fee</span>
+                            <span id="deliveryFee">₹40.00</span>
+                        </div>
+                        <div class="summary-row discount">
+                            <span>Discount</span>
+                            <span id="discount">-₹0.00</span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="total">₹0.00</span>
+                        </div>
+                        
+                        <button class="btn-primary btn-full" onclick="proceedToCheckout()">
+                            <i class="fas fa-lock"></i>
+                            Proceed to Checkout
+                        </button>
+                        
+                        <div class="promo-code">
+                            <input type="text" placeholder="Enter promo code" id="promoCode">
+                            <button class="btn-secondary" onclick="applyPromoCode()">Apply</button>
+                        </div>
+                        
+                        <div class="delivery-info">
+                            <i class="fas fa-truck"></i>
+                            <div>
+                                <strong>Free Delivery</strong>
+                                <p>On orders above ₹500</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Success!</span>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

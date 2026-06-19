@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basket Buddy - Your Online Grocery Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/enhanced-features.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <!-- Top Bar with Location -->
+            <div class="top-bar">
+                <div class="location-selector" id="locationSelector">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="selectedLocation">Select Location</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="top-links">
+                    <a href="#" class="top-link"><i class="fas fa-headset"></i> Help</a>
+                    <a href="#" class="top-link"><i class="fas fa-gift"></i> Offers</a>
+                </div>
+            </div>
+            
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>Basket Buddy</span>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search for products, brands, and more...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <nav class="nav-links">
+                    <a href="#" class="nav-link" id="wishlistLink">
+                        <i class="fas fa-heart"></i>
+                        <span>Wishlist</span>
+                        <span class="wishlist-badge" id="wishlistBadge">0</span>
+                    </a>
+                    <a href="cart.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </a>
+                    <a href="orders.html" class="nav-link">
+                        <i class="fas fa-box"></i>
+                        <span>Orders</span>
+                    </a>
+                    <a href="#" class="nav-link" id="profileLink">
+                        <i class="fas fa-user"></i>
+                        <span id="userNameDisplay">Login</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Location Modal -->
+    <div class="modal" id="locationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Select Your Location</h3>
+                <button class="modal-close" onclick="closeLocationModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="location-search">
+                    <input type="text" id="locationSearch" placeholder="Search for area, street name...">
+                    <button class="btn-primary"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="popular-locations">
+                    <h4>Popular Locations</h4>
+                    <div class="location-list">
+                        <div class="location-item" onclick="selectLocation('Hyderabad, Telangana')">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Hyderabad, Telangana</span>
+                        </div>
+                        <div class="location-item" onclick="selectLocation('Mumbai, Maharashtra')">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Mumbai, Maharashtra</span>
+                        </div>
+                        <div class="location-item" onclick="selectLocation('Delhi, NCR')">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Delhi, NCR</span>
+                        </div>
+                        <div class="location-item" onclick="selectLocation('Bangalore, Karnataka')">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore, Karnataka</span>
+                        </div>
+                        <div class="location-item" onclick="selectLocation('Pune, Maharashtra')">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pune, Maharashtra</span>
+                        </div>
+                        <div class="location-item" onclick="selectLocation('Chennai, Tamil Nadu')">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Chennai, Tamil Nadu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promotional Banner Carousel -->
+    <section class="banner-carousel">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide active">
+                        <div class="banner-content">
+                            <div class="banner-text">
+                                <h2>Fresh Groceries Delivered</h2>
+                                <p>Get up to 50% OFF on your first order</p>
+                                <button class="btn-primary">Shop Now</button>
+                            </div>
+                            <div class="banner-image">
+                                <i class="fas fa-shopping-basket" style="font-size: 8rem; color: var(--primary-color);"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="banner-content">
+                            <div class="banner-text">
+                                <h2>Farm Fresh Vegetables</h2>
+                                <p>Directly from farms to your doorstep</p>
+                                <button class="btn-primary">Explore</button>
+                            </div>
+                            <div class="banner-image">
+                                <i class="fas fa-carrot" style="font-size: 8rem; color: #f59e0b;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="banner-content">
+                            <div class="banner-text">
+                                <h2>Premium Dairy Products</h2>
+                                <p>100% pure and fresh daily essentials</p>
+                                <button class="btn-primary">Buy Now</button>
+                            </div>
+                            <div class="banner-image">
+                                <i class="fas fa-cheese" style="font-size: 8rem; color: #8b5cf6;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="moveCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Features Bar -->
+    <section class="quick-features">
+        <div class="container">
+            <div class="features-row">
+                <div class="feature-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Free Delivery on ₹500+</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Same Day Delivery</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Secure Payment</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo"></i>
+                    <span>Easy Returns</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be loaded dynamically -->
+                
+                <div class="category-card skeleton"></div>
+                <div class="category-card skeleton"></div>
+                <div class="category-card skeleton"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products with Filters -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="sort-filter-controls">
+                    <button class="filter-toggle-btn" onclick="toggleFilterSidebar()">
+                        <i class="fas fa-filter"></i> Filters
+                    </button>
+                    <div class="sort-dropdown">
+                        <select id="sortSelect" onchange="sortProducts(this.value)">
+                            <option value="popularity">Sort by Popularity</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Customer Rating</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products-container">
+                <!-- Filter Sidebar -->
+                <aside class="filter-sidebar" id="filterSidebar">
+                    <div class="filter-header">
+                        <h3>Filters</h3>
+                        <button class="clear-filters" onclick="clearAllFilters()">Clear All</button>
+                    </div>
+                    
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <h4>Categories</h4>
+                        <div class="filter-options" id="categoryFilters">
+                            <label class="filter-option">
+                                <input type="checkbox" value="all" checked onchange="filterByCategory()">
+                                <span>All Products</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="1" onchange="filterByCategory()">
+                                <span>Fresh Produce</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="2" onchange="filterByCategory()">
+                                <span>Dairy & Eggs</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="3" onchange="filterByCategory()">
+                                <span>Bakery</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="6" onchange="filterByCategory()">
+                                <span>Snacks</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Range Filter -->
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <div class="price-range-slider">
+                            <input type="range" id="priceRange" min="0" max="500" value="500" oninput="updatePriceRange()">
+                            <div class="price-range-values">
+                                <span>₹0 - ₹<span id="priceValue">500</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Rating Filter -->
+                    <div class="filter-group">
+                        <h4>Customer Rating</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="radio" name="rating" value="4" onchange="filterByRating(this.value)">
+                                <span>4★ & above</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="rating" value="3" onchange="filterByRating(this.value)">
+                                <span>3★ & above</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="rating" value="0" checked onchange="filterByRating(this.value)">
+                                <span>All Ratings</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Brand Filter -->
+                    <div class="filter-group">
+                        <h4>Brands</h4>
+                        <div class="filter-options" id="brandFilters">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- Products Grid -->
+                <div class="products-main">
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products will be loaded dynamically -->
+                        <div class="product-card skeleton"></div>
+                        <div class="product-card skeleton"></div>
+                        <div class="product-card skeleton"></div>
+                        <div class="product-card skeleton"></div>
+                    </div>
+                    <div class="load-more-container">
+                        <button class="btn-primary" id="loadMoreBtn">Load More Products</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Recently Viewed Products -->
+    <section class="recently-viewed-section" id="recentlyViewedSection" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Recently Viewed</h2>
+            <div class="products-slider" id="recentlyViewedGrid">
+                <!-- Recently viewed products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section class="deals-section">
+        <div class="container">
+            <h2 class="section-title">Today's Best Deals</h2>
+            <div class="deals-grid">
+                <div class="deal-card">
+                    <div class="deal-badge">50% OFF</div>
+                    <i class="fas fa-apple-alt deal-icon"></i>
+                    <h3>Fresh Fruits</h3>
+                    <p>Get up to 50% off on fresh fruits</p>
+                    <button class="btn-secondary">Shop Now</button>
+                </div>
+                <div class="deal-card">
+                    <div class="deal-badge">Buy 1 Get 1</div>
+                    <i class="fas fa-bread-slice deal-icon"></i>
+                    <h3>Bakery Items</h3>
+                    <p>Buy 1 Get 1 free on selected items</p>
+                    <button class="btn-secondary">Shop Now</button>
+                </div>
+                <div class="deal-card">
+                    <div class="deal-badge">₹100 OFF</div>
+                    <i class="fas fa-shopping-bag deal-icon"></i>
+                    <h3>First Order</h3>
+                    <p>Get ₹100 off on your first order</p>
+                    <button class="btn-secondary">Shop Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Basket Buddy?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Fresh & Quality</h3>
+                    <p>100% fresh products directly from farms</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tags"></i>
+                    <h3>Best Prices</h3>
+                    <p>Competitive prices with regular discounts</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Same day delivery available in your area</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Customer support available round the clock</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Basket Buddy</h3>
+                    <p>Your trusted online grocery store delivering fresh products to your doorstep.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Home</a></li>
+                        <li><a href="#" onclick="document.querySelector('.products-section').scrollIntoView({behavior: 'smooth'}); return false;">Products</a></li>
+                        <li><a href="#" onclick="document.querySelector('.categories-section').scrollIntoView({behavior: 'smooth'}); return false;">Categories</a></li>
+                        <li><a href="#" onclick="document.querySelector('.deals-section').scrollIntoView({behavior: 'smooth'}); return false;">Deals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Fresh Produce</a></li>
+                        <li><a href="#">Dairy & Eggs</a></li>
+                        <li><a href="#">Bakery</a></li>
+                        <li><a href="#">Beverages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91 90******83</li>
+                        <li><i class="fas fa-envelope"></i> support@basketbuddy.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Hyderabad, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Basket Buddy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content modal-large">
+            <button class="modal-close" onclick="closeQuickView()">&times;</button>
+            <div class="quick-view-content" id="quickViewContent">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div class="modal" id="wishlistModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-heart"></i> My Wishlist</h3>
+                <button class="modal-close" onclick="closeWishlistModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="wishlist-items" id="wishlistItems">
+                    <!-- Wishlist items will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Item added to cart!</span>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/enhanced-features.js"></script>
+</body>
+</html>
