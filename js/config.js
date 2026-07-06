@@ -35,20 +35,41 @@ const PRODUCT_ICONS = {
 
 // Mock Categories Data
 const MOCK_CATEGORIES = [
-    { id: 1, name: 'Fresh Produce', description: 'Fresh fruits and vegetables', product_count: 45 },
-    { id: 2, name: 'Dairy & Eggs', description: 'Milk, cheese, yogurt, and eggs', product_count: 32 },
-    { id: 3, name: 'Bakery', description: 'Fresh bread and baked goods', product_count: 28 },
-    { id: 5, name: 'Beverages', description: 'Tea, coffee, juices, and drinks', product_count: 38 },
-    { id: 6, name: 'Snacks', description: 'Chips, cookies, and snacks', product_count: 42 },
-    { id: 7, name: 'Personal Care', description: 'Soaps, shampoos, and toiletries', product_count: 35 },
-    { id: 8, name: 'Household', description: 'Cleaning supplies and essentials', product_count: 29 }
+    { 
+        id: 1, name: 'Fresh Produce',
+        description: 'Fresh fruits and vegetables',
+         product_count: 20
+    },
+
+    { 
+        id: 2, name: 'Dairy & Eggs',
+        description: 'Milk, cheese, yogurt, and eggs',
+         product_count: 15 },
+    { id: 3, name: 'Bakery', description: 'Fresh bread and baked goods', product_count: 20 },
+    { id: 5, name: 'Beverages', description: 'Tea, coffee, juices, and drinks', product_count: 40 },
+    { id: 6, name: 'Snacks', description: 'Chips, cookies, and snacks', product_count: 30 },
+    { id: 7, name: 'Personal Care', description: 'Soaps, shampoos, and toiletries', product_count: 45 },
+    { id: 8, name: 'Household', description: 'Cleaning supplies and essentials', product_count: 20 }
 ];
 
 // Mock Products Data
 const MOCK_PRODUCTS = [
     // Fresh Produce
-    { id: 1, name: 'Fresh Tomatoes', price: 45, category_id: 1, category_name: 'Fresh Produce', brand: 'Farm Fresh', unit: '1 kg', stock_quantity: 50, avg_rating: 4.5, review_count: 128, description: 'Fresh and juicy tomatoes, perfect for salads and cooking.' },
-    { id: 2, name: 'Organic Bananas', price: 60, category_id: 1, category_name: 'Fresh Produce', brand: 'Organic Valley', unit: '1 dozen', stock_quantity: 35, avg_rating: 4.8, review_count: 95, description: 'Naturally ripened organic bananas, rich in potassium.' },
+    {
+        id: 1,
+        name: 'Fresh Tomatoes',
+        price: 45,
+        category_id: 1,
+        category_name: 'Fresh Produce',
+        brand: 'Farm Fresh',
+        unit: '1 kg',
+        stock_quantity: 50,
+        avg_rating: 4.5,
+        review_count: 128,
+        description: 'Fresh and juicy tomatoes',
+        image_url: 'images/products/tomatoes.jpg'  
+    },
+    { id: 2, name: 'Organic Bananas', price: 60, category_id: 1, category_name: 'Fresh Produce', brand: 'Organic Valley', unit: '1 dozen', stock_quantity: 35, avg_rating: 4.8, review_count: 95, description: 'Naturally ripened organic bananas, rich in potassium.', image_url: 'images/products/bananas.jpg' },
     { id: 3, name: 'Fresh Spinach', price: 30, category_id: 1, category_name: 'Fresh Produce', brand: 'Green Farms', unit: '500g', stock_quantity: 42, avg_rating: 4.3, review_count: 67, description: 'Fresh green spinach leaves, packed with nutrients.' },
     { id: 4, name: 'Red Onions', price: 35, category_id: 1, category_name: 'Fresh Produce', brand: 'Farm Fresh', unit: '1 kg', stock_quantity: 60, avg_rating: 4.2, review_count: 89, description: 'Premium quality red onions for your daily cooking needs.' },
     

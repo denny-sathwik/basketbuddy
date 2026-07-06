@@ -95,8 +95,17 @@
     align-items: center;
     justify-content: space-between;
     background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%);
-    padding: 3rem 2rem;
+    gap: 2rem;
+    padding: 0 0 0 2rem;
     min-height: 300px;
+    overflow: hidden;
+}
+
+.banner-text {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding: 3rem 0;
 }
 
 .banner-text h2 {
@@ -112,7 +121,20 @@
 }
 
 .banner-image {
+    align-self: stretch;
+    width: clamp(280px, 42vw, 520px);
+    min-height: 300px;
     flex-shrink: 0;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 16%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 16%, #000 88%, transparent 100%);
+}
+
+.banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .carousel-btn {
@@ -665,7 +687,20 @@
     .banner-content {
         flex-direction: column;
         text-align: center;
-        padding: 2rem 1rem;
+        gap: 1rem;
+        padding: 1.5rem 1rem 0;
+    }
+
+    .banner-text {
+        padding: 0;
+    }
+
+    .banner-image {
+        width: 100%;
+        min-height: 190px;
+        height: 190px;
+        -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
+        mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
     }
     
     .banner-text h2 {
