@@ -1,12 +1,11 @@
 # 🛒 Basket Buddy - Frontend Showcase
-
-A modern, responsive grocery shopping website built with pure HTML, CSS, and JavaScript. This is a frontend-only demonstration showcasing beautiful UI/UX design and interactive features.
-
-
-
 🔗 Live Demo:([https://denny-sathwik.github.io/basketbuddy/](https://denny-sathwik.github.io/basketbuddy/))
 
 ![Home Page](images/products/project1.jpg)
+
+
+A modern, responsive grocery shopping website built with pure HTML, CSS, and JavaScript. This is a frontend-only demonstration showcasing beautiful UI/UX design and interactive features.
+
 
 ## ✨ Features
 
