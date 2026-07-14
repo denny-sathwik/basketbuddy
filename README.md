@@ -6,7 +6,7 @@ A modern, responsive grocery shopping website built with pure HTML, CSS, and Jav
 
 🔗 Live Demo:([https://denny-sathwik.github.io/basketbuddy/](https://denny-sathwik.github.io/basketbuddy/))
 
-![Home Page](images/projects/project6.jpg)
+![Home Page](images/products/project1.jpg)
 
 ## ✨ Features
 
